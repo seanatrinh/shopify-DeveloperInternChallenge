@@ -20,6 +20,23 @@ I was tasked with building an inventory tracking web application for a logistics
 - Allow deletion comments and undeletion
 - Provide ability to create "shipments" and assign inventory to the shipment
 
+## Getting Started
+
+1. Download dependencies with:
+
+   > `npm install`
+
+2.  Set up `.env` file using `example.env`
+
+    > `.env` requires Postgres config
+
+3. Run with:
+
+   > `npm run dev`
+ 
+4. PostgreSQL set up
+   > install PostgreSQL if needed and run schema file in `/PostgresSQL/schema.sql`
+
 ## Technologies and Tools
 1. Node.js
 2. Express
