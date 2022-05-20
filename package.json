@@ -9,8 +9,12 @@
   "author": "Sean Trinh",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.27.2",
     "body-parser": "^1.17.2",
+    "cors": "^2.8.5",
     "express": "^4.15.3",
+    "express-promise-router": "^4.1.1",
+    "pg": "^8.7.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },

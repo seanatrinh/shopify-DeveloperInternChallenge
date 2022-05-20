@@ -54,7 +54,7 @@ class Item extends React.Component {
       return (
         <div>
           <div>
-            <h4>edit item: {this.props.item.name}</h4>
+            <div>edit item: {this.props.item.name}</div>
             <div>
               <label>Change {this.props.item.name} to: </label>
               <input type="text" id="name" placeholder={this.state.name} onChange={this.handleChange}></input>
@@ -78,10 +78,10 @@ class Item extends React.Component {
       return (
         <div>
           <div>
-            id--{this.props.item.id}--
-            name--{this.props.item.name}--
-            quantity--{this.props.item.quantity}--
-            warehouse--{this.props.item.warehouse}
+            id :{this.props.item.id} ||
+            name :{this.props.item.name} ||
+            quantity :{this.props.item.quantity} ||
+            warehouse :{this.props.item.warehouse}
           </div>
           <button onClick={this.showEdit}>edit item</button>
           <button onClick={this.handleDelete}>delete item</button>

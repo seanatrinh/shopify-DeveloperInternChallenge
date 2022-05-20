@@ -4,14 +4,11 @@ import Item from './item';
 class ItemList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      items: this.props.items
-    }
   }
   render() {
     return (
       <div>
-        {this.state.items.map(item => (
+        {this.props.items.map(item => (
           <div key={item.id}>
             <Item
               item={item}

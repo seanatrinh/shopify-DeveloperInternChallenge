@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import axios from 'axios';
 import ItemList from './itemlist';
 import CreateItem from './CreateItem';
 import CreateWarehouse from './CreateWarehouse';
@@ -8,14 +9,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [
-        {id: 1, name: 'Steak', quantity: '10', warehouse: 'Brisbane'},
-        {id: 2, name: 'Chicken', quantity: '15', warehouse: 'Arizona'},
-      ],
-      warehouses: [
-        {warehouse: 'Brisbane'},
-        {warehouse: 'Arizona'},
-      ],
+      items: [],
+      warehouses: [{warehouse: 'Brisbane'}],
     };
     this.createWarehouse = this.createWarehouse.bind(this);
     this.createItem = this.createItem.bind(this);
@@ -23,20 +18,57 @@ class App extends React.Component {
     this.deleteItem = this.deleteItem.bind(this);
   }
 
+  componentDidMount() {
+    axios.get('/items')
+      .then(res => {
+        this.setState({ items: res.data });
+        axios.get('/warehouses')
+          .then(res => this.setState({ warehouses: res.data }))
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
+  }
+
   createItem(item) {
     console.log(item);
+    axios.post('/item', item)
+      .then(() => {
+        axios.get('/items')
+          .then(res => this.setState({ items: res.data }))
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
   }
 
   createWarehouse(warehouse) {
-    console.log(warehouse);
+    axios.post('/warehouse', warehouse)
+      .then(() => {
+        axios.get('/warehouses')
+          .then(res => this.setState({ warehouses: res.data }))
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
   }
 
   editItem(item) {
-    console.log(item);
+    axios.put('/item', item)
+      .then(() => {
+        axios.get('/items')
+          .then(res => this.setState({ items: res.data }))
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
   }
 
   deleteItem(itemID) {
-    console.log(itemID);
+    axios.delete('/item', { data: {id: itemID} })
+      .then((res) => {
+        console.log(res);
+        axios.get('/items')
+          .then(res => this.setState({ items: res.data }))
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
