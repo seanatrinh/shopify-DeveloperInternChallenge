@@ -1,0 +1,1 @@
+{"version":2,"languages":{"nodejs-npm":{"specfileHash":"3b5ca9b2e74965cbe54175a39da241f2","lockfileHash":"d0fb5f9e6d4048df87cc6c6c564f5123"},"nodejs-yarn":{"specfileHash":"cea4db64a99bff549aa6b35393eccdd8","lockfileHash":"9e3758baa4dc696981413cbc14395cec","guessedImports":["express","webpack","react","react-dom","dotenv"],"guessedImportsHash":"d8d655dd66a2f386695806179fde0492"}}}
